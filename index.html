@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    .conteiner {
+        height: 100vh;
+        background-color: aqua;
+        display: grid;
+        grid-template: 50px auto 50px/auto 1fr;
+        grid-template-areas: "aside header" "aside section" "aside footer";
+
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+    .aside {
+        grid-area: aside;
+        width: 250px;
+        background-color: burlywood;
+        transition: all .5s;
+    }
+
+    .section {
+        grid-area: section;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    .change {
+        background-color: blueviolet;
+        width: 50px;
+        
+    }
+</style>
+<body>
+    <div class="conteiner">
+        <div class="header">Header</div>
+        <div class="aside">Aside</div>
+        <div class="section">Contenido
+            <button class="boton">Boton</button>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+    <script>
+const boton  = document.querySelector(".boton");
+const aside = document.querySelector(".aside"); 
+console.log(boton)
+boton.addEventListener("click", event => {
+    let status = aside.classList.contains("change")
+    //if(status){
+        //aside.classList.remove("change");
+       //return;
+   // }
+    status ? aside.classList.remove("change") : aside.classList.add("change")
+})
+    </script>
+</body>
+</html>
